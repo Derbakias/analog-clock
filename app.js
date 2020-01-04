@@ -17,9 +17,13 @@ let highDeg = null;
 let add = 0;
 
 // event listeners 
-up.addEventListener('mousedown', () => interval = setInterval(addTime, 10));
+up.addEventListener('mousedown', () => interval = setInterval(addTime, 50));
 up.addEventListener('mouseup', () => clearInterval(interval));
-down.addEventListener('mousedown', () => interval = setInterval(reduceTime, 10));
+up.addEventListener('touchstart', () => interval = setInterval(addTime, 50));
+up.addEventListener('touchend', () => clearInterval(interval));
+down.addEventListener('touchstart', () => interval = setInterval(reduceTime, 50));
+down.addEventListener('touchend', () => clearInterval(interval));
+down.addEventListener('mousedown', () => interval = setInterval(reduceTime, 50));
 down.addEventListener('mouseup', () => clearInterval(interval));
 up.addEventListener('click', addTime);
 down.addEventListener('click', reduceTime);
