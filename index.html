@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Clock-Alarm</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+      <div class="clock">
+        <div class="alarm-wrapper">
+          <h3>Alarm</h3>
+          <div class="indicator">
+            <p>OFF</p>
+            <p>ON</p>
+          </div>
+          <p class="set-alarm setup">></p>
+          <p class="set-alarm setdown">></p>
+          <div class="alarm-switch">
+            <input type="checkbox" name="alarm" id="switch">
+            <label id="label" for="switch"></label>
+          </div>
+        </div>
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand second"></div>
+        <div class="hand alarm"></div>
+        <div class="number number1">1</div>
+        <div class="number number2">2</div>
+        <div class="number number3">3</div>
+        <div class="number number4">4</div>
+        <div class="number number5">5</div>
+        <div class="number number6">6</div>
+        <div class="number number7">7</div>
+        <div class="number number8">8</div>
+        <div class="number number9">9</div>
+        <div class="number number10">10</div>
+        <div class="number number11">11</div>
+        <div class="number number12">12</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="audio">
+    <audio id="alarm-sound">
+      <source src="assets/goustarw na xorevw.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

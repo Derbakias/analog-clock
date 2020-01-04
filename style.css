@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  overflow: hidden;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: lightgrey;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.clock {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  background: seashell;
+  border-radius: 50%;
+}
+
+.hand {
+  position: absolute;
+}
+
+.clock .number {
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(var(--rotation));
+}
+
+.clock .number1 { --rotation: 30deg}
+.clock .number2 { --rotation: 60deg}
+.clock .number3 { --rotation: 90deg}
+.clock .number4 { --rotation: 120deg}
+.clock .number5 { --rotation: 150deg}
+.clock .number6 { --rotation: 180deg}
+.clock .number7 { --rotation: 210deg}
+.clock .number8 { --rotation: 240deg}
+.clock .number9 { --rotation: 270deg}
+.clock .number10 { --rotation: 300deg}
+.clock .number11 { --rotation: 330deg}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  border: 1px solid white;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  transform-origin: bottom;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  z-index: 10;
+}
+
+.clock .hand.hour {
+  --rotation: 0;
+  width: 15px;
+  height: 28%;
+  background: black;
+}
+
+.clock .hand.minute {
+  --rotation: 0;
+  width: 10px;
+  height: 40%;
+  background: black;
+}
+
+.clock .hand.second {
+  --rotation: 0;
+  width: 5px;
+  height: 44%;
+  background: darkred;
+  z-index: 12;
+}
+
+.clock .hand.alarm {
+  --rotation: 0;
+  width: 8px;
+  height: 20%;
+  background: red;
+  z-index: 11;
+}
+
+.clock::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  background: black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+}
+
+.alarm-wrapper {
+  position: absolute;
+  bottom: 40%;
+  left: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+.alarm-switch {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  background: grey;
+  border-radius: 10px;
+}
+
+.indicator {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 12px;
+}
+
+.alarm-switch #label {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.4s ease-out;
+}
+
+.alarm-switch #switch {
+  position: absolute;
+  top: 8px;
+  opacity: 0;
+}
+
+.alarm-switch #switch:checked + #label {
+  background: red;
+  transform: translateX(95%);
+}
+
+.set-alarm {
+  position: absolute;
+  top: 80px;
+  left: 38px;
+}
+
+.setup {
+  padding: 2px;
+  background: lightslategray;
+  transform: rotate(270deg);
+  cursor: pointer;
+}
+
+.setdown {
+  top: 100px;
+  padding: 2px;
+  background: lightslategray;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .clock {
+    width: 300px;
+    height: 300px;
+  }
+}
